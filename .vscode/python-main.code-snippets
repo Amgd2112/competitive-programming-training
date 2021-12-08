@@ -1,0 +1,28 @@
+{
+  "main_snippet": {
+    "prefix": "python_main",
+    "body": [
+      "from bisect import bisect_left, bisect_right  # c++ lowerbound, upperbound",
+      "",
+      "ONLINE_JUDGE = __debug__",
+      "if ONLINE_JUDGE:",
+      "    import io",
+      "    import os",
+      "    input = io.BytesIO(os.read(0, os.fstat(0).st_size)).readline",
+      "    print = sys.stdout.write",
+      "",
+      "if not ONLINE_JUDGE:",
+      "    import sys",
+      "    sys.stdin = open('\\\\'.join([sys.path[0], 'input.txt']), 'r')",
+      "",
+      "def main():",
+      "    pass",
+      "",
+      "",
+      "if __name__ == '__main__':",
+      "    main()",
+      ""
+    ],
+    "description": "main_snippet"
+  }
+}

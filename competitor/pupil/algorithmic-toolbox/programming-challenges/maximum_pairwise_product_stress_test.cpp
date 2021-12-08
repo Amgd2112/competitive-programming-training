@@ -60,8 +60,7 @@ int main() {
 
     long long res1 = max_pairwise_product_naive(a, n);
     long long res2 = max_pairwise_product_fast(a, n);
-    // long long res3 = max_pairwise_product_fast_heapify(vector<int>(a, a +
-    // n));
+    long long res3 = max_pairwise_product_fast_heapify(vector<int>(a, a + n));
 
     if (res1 == res2) continue;
     printf("Wrong answer: %lld %lld\n", res1, res2);

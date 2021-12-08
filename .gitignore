@@ -1,0 +1,12 @@
+input.txt
+*.exe
+
+*.json
+*.code-snippets
+*.xlsx
+*.docx
+
+/competitor/apprentice/*
+/competitor/newbie/*
+/competitor/pupil/data-structures/*
+/competitor/pupil/mathematics/*

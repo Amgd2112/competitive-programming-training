@@ -16,26 +16,23 @@ bool is_sequence_repeated(vector<long long> a) {
   return false;
 }
 
-int fibonacci_under_modulo(long long n, long long m) {
+int fibonacci_under_modulo(long long n, int m) {
   long long a = 0, b = 1;
   vector<long long> fibonacci_sequence = {a, b};
   int size = fibonacci_sequence.size();
 
-  while (true) {
-    a = fibonacci_sequence[size - 2];
-    b = fibonacci_sequence[size - 1];
-    if (a + b >= m) break;
+  while (a + b >= m) {
     fibonacci_sequence.push_back(a + b);
     size++;
+    a = fibonacci_sequence[size - 2];
+    b = fibonacci_sequence[size - 1];
   }
 
-  while (true) {
+  while (!is_sequence_repeated(fibonacci_sequence)) {
     a = fibonacci_sequence[size - 2];
     b = fibonacci_sequence[size - 1];
     fibonacci_sequence.push_back((a + b) % m);
     size++;
-
-    if (is_sequence_repeated(fibonacci_sequence)) break;
   }
 
   return fibonacci_sequence[n % (size / 2)];

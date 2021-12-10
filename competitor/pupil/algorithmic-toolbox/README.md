@@ -14,3 +14,13 @@
 * Last digit of the sum of Fibonacci sequence
 * Last digit of the partial sum of Fibonacci sequence
 * Last digit of the sum of squares of Fibonacci sequence
+
+## Greedy Algorithms
+* Activities Selection
+* Money Change
+* Maximum Value of the Loot
+* Car Fueling
+* Maximum Advertisement Revenue
+* Collecting Signatures
+* Maximum Number of Prizes
+* Maximum Salary

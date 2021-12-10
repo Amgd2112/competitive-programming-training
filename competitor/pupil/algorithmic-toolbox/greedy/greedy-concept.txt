@@ -1,0 +1,51 @@
+Let's Remember DP 
+	- We need to do maximization/minimization on certain problem (e.g. EnapSack Problem). 
+	- We formulate State, each State S_Root, has SubStates Sehild2, Sehild3 
+	- Each Sehild is another state, has sub states 
+	- We don't know the OPTIMAL, we try EVERY child and optimize based on that 
+
+Greedy 
+	- Do only 1 choice (The Greedy Choice) based on Intuition/Heuristic
+	- Then we move to only ONE child substate, only new subproblem, and again apply the Greedy Choice 
+	- Greedy finds a global optimum solution or approximate solution 
+	- In contests, we only care with global optimum solution problems 
+	- In real life, both types are critical, and approximate type is more important
+More 
+	- A greedy algorithm always makes the choice that 'looks "best at the moment" 
+	- That is, it makes a locally optimal choice in the hope that this choice will lead to a globally optimal solution
+	- You must have proof, in case globally optimal solution greedy Algorithms
+	- In competitions, most of time, we find strong Intuition and don't proof it. Use examples to challenge your idea.  
+	- After competitions, think WHY that was correct. Ignoring this will make you weak contestant 
+	- Study proofing techniques so that you are able to formulate a mathmatical proof 
+	- Sometimes greedy and dp exist for same problem, many times, greedy only is feasible
+
+-------------------------------------
+Example 1: Activity selection problem' 
+	- Given a set of activities, each one has: Start tine 5[i] and finish time F[i] 
+	- Find the maximum number of activities that don't overlap 
+	- Activity can start directly when an activity ends. E.g. activity(10, 15) could start after activity (7, 10).
+
+DP solution 
+	- The problem could be formulated es DP easily, it is subset style one. We finally have 01001011101 space 
+	- But, how to manage it? if we picked an activity, what to call? some activities before c after me are fine!! 
+	- Sort the activities so that we look one way. Sort based on activities Start or Finish times 
+	- One restriction, when we pick one, we should call on the first activity one that doesn't overlap, NOT the direct next one. 
+	- So each state has 2 choices: Pick or Leave 
+	- Could we find a way such that, each time, we decide to Pick or Leave? If so, you found a Greedy solution 
+Greedy solution
+	- Let's try some Intuitions. 
+	- What about Let's count for each activity, how many ones that intersect with you? Then sort based on the minimum intersections? 
+		- Wrong! See the image as an example of failure. 
+	- What about doing a selection that would leave as many of the activities as possible. 
+		- If activities are sorted based on start time, picking the first one doesn't do so 
+			- For example: Imagine the first activity has the smallest start time and the biggest end time. Picking it will discard all others! 
+	- What If activities are sorted based on finish time? Make sense! 
+		- The first ending activity, discard all overlapping with it, but give space for all next activities! 
+	- Time for proof! So that we are sure from this intuition! 
+		- Let s = {1, 2, ..., n} be the set of activities ordered by finish time. Thus activity 1 has the earliest finish time. 
+		- Suppose, A is a subset of S is the optimal solution and let activities in A be ordered by finish time. Suppose, the first activity in A is k. 
+		- If k 1, then A begins with a greedy choice and we are done (or to be very precise, there is nothing to prove here). 
+		- If k not=1, we want to show that there is another solution B that begins with a greedy choice, activity 1. 
+		- Let B = (A - {k}) U {1}. Because f[1] =< f[k], the activities in B are disjoint 
+		- Since B has the same number of activities as A, i.e., |A| |B|, B is also optimal. 
+

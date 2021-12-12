@@ -9,29 +9,29 @@ using namespace std;
 #define FIO freopen("input.txt", "r", stdin);
 
 struct Item {
-  double price;
+  int value;
   int weight;
+  double vpw;  // value per weight
 
-  Item(double price = 0.0, int weight = 0) {
-    this->price = price;
+  Item(int value = 0.0, int weight = 0) {
+    this->value = value;
     this->weight = weight;
+    vpw = double(value) / weight;
   }
 
-  bool operator<(const Item &item) { return price < item.price; }
+  bool operator<(const Item &item) { return vpw < item.vpw; }
 };
 
-double maximum_loot(vector<Item> items, int w) {
+double maximum_loot(vector<Item> items, int knapsack) {
   sort(items.begin(), items.end());
-  reverse(items.begin(), items.end());
 
   double loot = 0.0;
-  int i = 0;
-  int n = items.size();
-  while (i < n && w > 0) {
-    int weight = min(items[i].weight, w);
-    loot += weight * items[i].price;
-    w -= weight;
-    i++;
+  int i = items.size();
+  int weight;
+  while (i-- && knapsack) {
+    weight = min(items[i].weight, knapsack);
+    loot += weight * items[i].vpw;
+    knapsack -= weight;
   }
 
   return loot;
@@ -45,12 +45,10 @@ int main() {
   scanf("%d %d\n", &n, &w);
   vector<Item> items(n);
 
-  int total_price, weight;
-  double price;
+  int value, weight;
   while (n--) {
-    scanf("%d %d", &total_price, &weight);
-    price = double(total_price) / weight;
-    items[n] = Item(price, weight);
+    scanf("%d %d", &value, &weight);
+    items[n] = Item(value, weight);
   }
 
   double loot = maximum_loot(items, w);

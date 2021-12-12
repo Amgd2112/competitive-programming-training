@@ -6,7 +6,12 @@ using namespace std;
   cin.tie(NULL);                    \
   cout.tie(NULL);
 
-#define FIO freopen("input.txt", "r", stdin);
+#define FIO                         \
+  freopen("input.txt", "r", stdin); \
+  freopen("output.txt", "w", stdout);
+
+#define N 1000
+#define M 200000
 
 typedef long long ll;
 
@@ -22,15 +27,19 @@ int main() {
   IOS;
   // FIO;
 
-  int n;
-  scanf("%d", &n);
-  int a[n];
-  for (int &ai : a) scanf("%d", &ai);
-  int b[n];
-  for (int &bi : b) scanf("%d", &bi);
+  int t = N;
+  while (t--) {
+    int n = rand() % N + 1;
+    int a[n];
+    int b[n];
+    for (int i = 0; i < n; i++) {
+      a[i] = rand() % M;
+      b[i] = rand() % M;
+    }
 
-  ll revenue = maximum_revenue(a, b, n);
-  printf("%lld\n", revenue);
+    ll revenue = maximum_revenue(a, b, n);
+    printf("%lld\n", revenue);
+  }
 
   return 0;
 }

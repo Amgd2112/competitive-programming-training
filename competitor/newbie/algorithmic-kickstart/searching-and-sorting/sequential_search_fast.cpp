@@ -9,8 +9,10 @@ using namespace std;
 #define FIO freopen("input.txt", "r", stdin);
 
 int linear_search(int a[], int n, int key) {
-  for (int i = 0; i < n; i++) {
-    if (a[i] == key) return i;
+  int left = 0, right = n - 1;
+  while (right >= left) {
+    if (a[left++] == key) return left;
+    if (a[right--] == key) return right;
   }
   return -1;
 }

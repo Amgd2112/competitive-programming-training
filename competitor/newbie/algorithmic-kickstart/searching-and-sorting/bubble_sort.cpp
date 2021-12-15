@@ -10,7 +10,7 @@ using namespace std;
 
 void bubble_sort(int a[], int begin, int end) {
   while (end > begin) {
-    for (int i = 0; i < end - 1; i++) {
+    for (int i = begin; i < end - 1; i++) {
       if (a[i] > a[i + 1]) {
         swap(a[i], a[i + 1]);
       }

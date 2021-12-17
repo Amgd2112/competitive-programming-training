@@ -10,13 +10,13 @@ using namespace std;
 
 #define M 1000000007
 
-void add_cost(int axis[], int &cost, int &cuts1, int &cuts2, int &idx) {
+void increase_cost(int axis[], int &cost, int &cuts1, int &cuts2, int &idx) {
   cost = (cost + (axis[idx] * (unsigned long long)cuts1)) % M;
   cuts2++;
   idx++;
 }
 
-int board_cutting(int x[], int y[], const int &n, const int &m) {
+int minimum_board_cutting_cost(int x[], int y[], const int &n, const int &m) {
   sort(x, x + n, greater<int>());
   sort(y, y + m, greater<int>());
 
@@ -26,19 +26,20 @@ int board_cutting(int x[], int y[], const int &n, const int &m) {
 
   while (i < n && j < m) {
     if (x[i] == y[j]) {
-      if (ycuts < xcuts)
-        add_cost(y, cost, ycuts, xcuts, j);
-      else
-        add_cost(x, cost, xcuts, ycuts, i);
-    } else if (x[i] > y[j])
-      add_cost(x, cost, xcuts, ycuts, i);
-    else {
-      add_cost(y, cost, ycuts, xcuts, j);
+      if (ycuts < xcuts) {
+        increase_cost(y, cost, ycuts, xcuts, j);
+      } else {
+        increase_cost(x, cost, xcuts, ycuts, i);
+      }
+    } else if (x[i] > y[j]) {
+      increase_cost(x, cost, xcuts, ycuts, i);
+    } else {
+      increase_cost(y, cost, ycuts, xcuts, j);
     }
   }
 
-  while (i < n) add_cost(x, cost, xcuts, ycuts, i);
-  while (j < m) add_cost(y, cost, ycuts, xcuts, j);
+  while (i < n) increase_cost(x, cost, xcuts, ycuts, i);
+  while (j < m) increase_cost(y, cost, ycuts, xcuts, j);
 
   return cost;
 }
@@ -55,7 +56,7 @@ int main() {
     for (int &yi : y) scanf("%d", &yi);
     int x[n - 1];
     for (int &xi : x) scanf("%d", &xi);
-    int cost = board_cutting(x, y, n - 1, m - 1);
+    int cost = minimum_board_cutting_cost(x, y, n - 1, m - 1);
     printf("%d\n", cost);
   }
 

@@ -26,7 +26,7 @@ struct Order {
   }
 };
 
-void jimOrders(vector<Order> &orders, const int &n) {
+void jim_orders(vector<Order> &orders, const int &n) {
   sort(orders.begin(), orders.end(), Order::by_serving);
   int lower, upper;
   for (int i = 0; i < n; i++) {
@@ -53,7 +53,7 @@ int main() {
     orders.push_back(Order(i + 1, o, p));
   }
 
-  jimOrders(orders, n);
+  jim_orders(orders, n);
   for (const Order &order : orders) printf("%d ", order.customer_number);
 
   return 0;

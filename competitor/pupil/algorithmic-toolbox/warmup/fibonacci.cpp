@@ -42,14 +42,14 @@ int main() {
 
   unsigned long long x;
 
-  x = fibonacci_naive(n);
-  printf("%llu\n", x);
+  // x = fibonacci_naive(n);
+  // printf("%llu\n", x);
 
   x = fibonacci_fast(n);
   printf("%llu\n", x);
 
-  vector<unsigned long long> fib = fibonacci_sequence(n);
-  for (unsigned long long fi : fib) printf("%llu ", fi);
+  // vector<unsigned long long> fib = fibonacci_sequence(n);
+  // for (unsigned long long fi : fib) printf("%llu ", fi);
 
   return 0;
 }

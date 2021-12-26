@@ -8,34 +8,39 @@ using namespace std;
 
 #define FIO freopen("input.txt", "r", stdin);
 
-bool is_sequence_repeated(vector<long long> a) {
-  int s = a.size();
-  int i = 0, j = s / 2;
-  while (a[i++] == a[j++] && j < s) continue;
-  if (j == s) return true;
+bool is_sequence_repeated(vector<int> a) {
+  int n = a.size();
+  int i = 0, j = n / 2;
+  while (a[i++] == a[j++] && j < n) continue;
+  if (j == n) return true;
   return false;
 }
 
+vector<int> fibonacci_sequence_modulo(int m) {
+  int a = 0, b = 1;
+  vector<int> sequence = {a, b};
+  int size = sequence.size();
+
+  while ((a + b) < m) {
+    sequence.push_back(a + b);
+    size++;
+    a = sequence[size - 2];
+    b = sequence[size - 1];
+  }
+
+  while (!is_sequence_repeated(sequence)) {
+    a = sequence[size - 2];
+    b = sequence[size - 1];
+    sequence.push_back((a + b) % m);
+    size++;
+  }
+
+  return vector<int>(sequence.begin(), sequence.begin() + size / 2);
+}
+
 int fibonacci_under_modulo(long long n, int m) {
-  long long a = 0, b = 1;
-  vector<long long> fibonacci_sequence = {a, b};
-  int size = fibonacci_sequence.size();
-
-  while (a + b >= m) {
-    fibonacci_sequence.push_back(a + b);
-    size++;
-    a = fibonacci_sequence[size - 2];
-    b = fibonacci_sequence[size - 1];
-  }
-
-  while (!is_sequence_repeated(fibonacci_sequence)) {
-    a = fibonacci_sequence[size - 2];
-    b = fibonacci_sequence[size - 1];
-    fibonacci_sequence.push_back((a + b) % m);
-    size++;
-  }
-
-  return fibonacci_sequence[n % (size / 2)];
+  vector<int> sequence = fibonacci_sequence_modulo(m);
+  return sequence[n % sequence.size()];
 }
 
 int main() {

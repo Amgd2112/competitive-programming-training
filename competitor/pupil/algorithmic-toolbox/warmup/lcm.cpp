@@ -9,7 +9,7 @@ using namespace std;
 #define FIO freopen("input.txt", "r", stdin);
 
 long long gcd(long long a, long long b) {
-  if (b <= 1) return a;
+  if (b == 0) return a;
   return gcd(b, a % b);
 }
 

@@ -8,9 +8,7 @@ using namespace std;
 
 #define FIO freopen("input.txt", "r", stdin);
 
-#define N 1000000000
-
-int maximum_prizes(int &n) {
+int maximum_prizes(int n) {
   int i = 1;
   int x = 1;
   int inc = 2;
@@ -24,9 +22,9 @@ int maximum_prizes(int &n) {
   return i;
 }
 
-void display_prizes(int &n, int &prizes) {
-  for (int prize = 1; prize < prizes; prize++) printf("%d ", prize);
-  printf("%d\n", n - ((prizes % N * (prizes - 1) % N) % N) / 2);
+void display_prizes(int n, int prizes) {
+  for (int p = 1; p < prizes; p++) printf("%d ", p);
+  printf("%lld\n", n - ((long long)prizes * (prizes - 1)) / 2);
 }
 
 int main() {

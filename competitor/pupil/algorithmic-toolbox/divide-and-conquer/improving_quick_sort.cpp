@@ -8,24 +8,32 @@ using namespace std;
 
 #define FIO freopen("input.txt", "r", stdin);
 
-int random_partition(int a[], const int &low, const int &high) {
+pair<int, int> random_partition(int a[], const int &low, const int &high) {
   int pivot = rand() % (high - low) + low;
   swap(a[pivot], a[low]);
-  int idx = low;
-  for (int i = low + 1; i < high; i++) {
-    if (a[i] < a[low]) {
-      swap(a[i], a[++idx]);
+
+  int i = low + 1, q = low, p = high, c = 0;
+  while (i < p) {
+    if (a[i] == a[low]) {
+      c++;
+    } else if (a[i] < a[low]) {
+      swap(a[i], a[++q]);
+    } else {
+      swap(a[i--], a[--p]);
     }
+    i++;
   }
-  swap(a[low], a[idx]);
-  return idx;
+
+  swap(a[low], a[q]);
+  for (i = q; i < q + c; i++) a[i] = a[q];
+  return make_pair(q, p);
 }
 
 void quick_sort(int a[], const int &low, const int &high) {
   if (low >= high) return;
-  int pivot = random_partition(a, low, high);
-  quick_sort(a, low, pivot);
-  quick_sort(a, pivot + 1, high);
+  pair<int, int> p = random_partition(a, low, high);
+  quick_sort(a, low, p.first);
+  quick_sort(a, p.second, high);
 }
 
 int main() {

@@ -7,9 +7,9 @@ using namespace std;
  * it returns 0.
  *
  * Operator | Example                       | Meaning
- * &&       | expression1 && expression2	| Logical AND
+ * &&       | expression1 && expression2    | Logical AND
  * ||       | expression1 || expression2    | Logical OR
- * !	    | !expression	                | Logical NOT
+ * !        | !expression                   | Logical NOT
  */
 
 int main() {

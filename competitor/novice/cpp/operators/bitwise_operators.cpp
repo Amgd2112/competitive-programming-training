@@ -6,13 +6,13 @@ using namespace std;
  * They can only be used alongside char and int data types.
  *
  *
- * Operator	| Description
- *  &	      | Binary AND
- *  |	      | Binary OR
- *  ^	      | Binary XOR
- *  ~	      | Binary One's Complement
- *  <<	    | Binary Shift Left
- *  >>	    | Binary Shift Right
+ * Operator | Description
+ *  &       | Binary AND
+ *  |       | Binary OR
+ *  ^       | Binary XOR
+ *  ~       | Binary One's Complement
+ *  <<      | Binary Shift Left
+ *  >>      | Binary Shift Right
  */
 
 int main() {

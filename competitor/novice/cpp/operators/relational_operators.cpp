@@ -6,9 +6,9 @@ using namespace std;
  *
  * Operator | Meaning                  | Example
  * ==       | Is Equal                 | To	3 == 5 gives us false
- * !=	      | Not Equal To	           | 3 != 5 gives us true
- * >        | Greater Than	           | 3 > 5 gives us false
- * <        | Less Than	               | 3 < 5 gives us true
+ * !=       | Not Equal To             | 3 != 5 gives us true
+ * >        | Greater Than             | 3 > 5 gives us false
+ * <        | Less Than                | 3 < 5 gives us true
  * >=       | Greater Than or Equal To | 3 >= 5 give us false
  * <=       | Less Than or Equal To    | 3 <= 5 gives us true
  */

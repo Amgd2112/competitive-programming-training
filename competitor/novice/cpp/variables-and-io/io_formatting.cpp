@@ -70,3 +70,17 @@ int main() {
 
   return 0;
 }
+
+/* output:
+ *  Hi       Amgad Hussein
+ *  The number is 89
+ *  2.233
+ *  Dec(num + 90): 922
+ *  Hex(num + 90) = 39a
+ *  My full name is Amgad Hussein
+ *  s:AADFE
+ *  s:Gwhat\nAbC$x8d
+ *  s:235\n328239, x:Hello
+ *  s:Amgad Hussein
+ *  s:ADB
+ */

@@ -26,12 +26,6 @@ int main() {
    *  cout << fixed << setprecision(3) << d << '\n';
    */
 
-  /*   format_specifier
-   *   ---------------------------
-   *   Ocatl            | "%0o"  |
-   *   Hexadecimal      | "%0x"  |
-   */
-
   unsigned short num;
   scanf("%u\n", &num);  // escape the next new line on the input stream
   /* other way:
@@ -39,6 +33,11 @@ int main() {
    *  cin.get(); // to get the next new line
    */
 
+  /*   format_specifier
+   *   ---------------------------
+   *   Ocatl            | "%0o"  |
+   *   Hexadecimal      | "%0x"  |
+   */
   printf("Dec(num + 90): %d\n", num + 90);
   printf("Hex(num + 90) = %0x\n", num + 90);
   /* other way:

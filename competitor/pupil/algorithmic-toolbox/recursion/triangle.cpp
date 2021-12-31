@@ -15,7 +15,7 @@ void draw(const int &n, const char &symbol) {
   draw(n - 1, symbol);
 }
 
-int main() {
+int main(int argc, char const *argv[]) {
   IOS;
   // FIO;
 

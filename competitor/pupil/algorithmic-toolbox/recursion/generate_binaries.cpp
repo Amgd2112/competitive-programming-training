@@ -19,7 +19,7 @@ void generate_binaries(int n, string s = "") {
   generate_binaries(n - 1, s + '1');
 }
 
-int main() {
+int main(int argc, char const *argv[]) {
   IOS;
   // FIO;
 

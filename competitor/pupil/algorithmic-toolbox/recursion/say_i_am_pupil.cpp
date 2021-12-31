@@ -14,7 +14,7 @@ void say_i_am_pupil(const int &n) {
   printf("%d: I'm Pupil.\n", n);  // logic
 }
 
-int main() {
+int main(int argc, char const *argv[]) {
   IOS;
   // FIO;
 

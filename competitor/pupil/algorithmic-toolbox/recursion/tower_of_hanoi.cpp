@@ -16,7 +16,7 @@ void hanoi(int n, int start, int end) {
   hanoi(n - 1, mid, end);
 }
 
-int main() {
+int main(int argc, char const *argv[]) {
   IOS;
   // FIO;
 

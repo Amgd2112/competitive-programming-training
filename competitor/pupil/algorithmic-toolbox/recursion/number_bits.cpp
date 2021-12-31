@@ -14,7 +14,7 @@ void number_bits(const int &n) {
   printf("%d", n % 2);
 }
 
-int main() {
+int main(int argc, char const *argv[]) {
   IOS;
   // FIO;
 

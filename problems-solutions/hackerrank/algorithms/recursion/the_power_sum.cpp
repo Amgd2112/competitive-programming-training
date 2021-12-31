@@ -8,19 +8,21 @@ using namespace std;
 
 #define FIO freopen("input.txt", "r", stdin);
 
-void reverse_number(const int &n) {
-  if (n == 0) return;
-  printf("%d", n % 10);
-  reverse_number(n / 10);
+int psum(const int &x, const int &n, const int &c = 1) {
+  int k = static_cast<int>(x - pow(c, n));
+  if (k < 0) return 0;
+  if (k == 0) return 1;
+  return psum(k, n, c + 1) + psum(x, n, c + 1);
 }
 
 int main(int argc, char const *argv[]) {
   IOS;
   // FIO;
 
-  int n;
-  scanf("%d", &n);
-  reverse_number(n);
+  int x, n;
+  scanf("%d%d", &x, &n);
+  int p = psum(x, n);
+  printf("%d\n", p);
 
   return 0;
 }

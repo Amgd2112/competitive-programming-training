@@ -28,7 +28,7 @@ int max_path(vector<vector<int>> &grid, int &n, int &m, int i = 0, int j = 0) {
   return grid[i][j] + max(q, p);
 }
 
-int main() {
+int main(int argc, char const *argv[]) {
   IOS;
   // FIO;
 

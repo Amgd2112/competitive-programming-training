@@ -13,7 +13,7 @@ int three_plus_one_series(const int &n) {
   return 1 + three_plus_one_series((n % 2 != 0) ? 3 * n + 1 : n / 2);
 }
 
-int main() {
+int main(int argc, char const *argv[]) {
   IOS;
   // FIO;
 

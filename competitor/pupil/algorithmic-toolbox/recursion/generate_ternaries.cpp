@@ -18,7 +18,7 @@ void generate_ternaries(int n, string s = "") {
   generate_ternaries(n - 1, s + '2');
 }
 
-int main() {
+int main(int argc, char const *argv[]) {
   IOS;
   // FIO;
 

@@ -1,3 +1,4 @@
+// number of unique grid paths
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -8,19 +9,19 @@ using namespace std;
 
 #define FIO freopen("input.txt", "r", stdin);
 
-void reverse_number(const int &n) {
-  if (n == 0) return;
-  printf("%d", n % 10);
-  reverse_number(n / 10);
+int grid_paths(const int &n, const int &m) {
+  if (n == 1 || m == 1) return 1;
+  return grid_paths(n - 1, m) + grid_paths(n, m - 1);
 }
 
 int main(int argc, char const *argv[]) {
   IOS;
   // FIO;
 
-  int n;
-  scanf("%d", &n);
-  reverse_number(n);
+  int n, m;
+  scanf("%d%d", &n, &m);
+  int paths = grid_paths(n, m);
+  printf("%d\n", paths);
 
   return 0;
 }

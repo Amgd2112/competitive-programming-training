@@ -53,7 +53,7 @@ int main(int argc, char const *argv[]) {
   int a[n];
   for (int &ai : a) scanf("%d", &ai);
 
-  int x = merge_sort(a, 0, n);
+  int x = merge_sort(a, 0, n - 1);
   printf("%d\n", x);
 
   return 0;

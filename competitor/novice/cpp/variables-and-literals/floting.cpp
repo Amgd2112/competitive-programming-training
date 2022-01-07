@@ -2,13 +2,13 @@
 using namespace std;
 
 int main(int argc, char const *argv[]) {
-  float f = 32.23;
-  double d = 32.8939228379823;
-  long double ld = 382.32897239;
+  float time_on_seconds = 32.23;
+  double balance = 92892.89;
+  long double pi = 3.1415926535897932384626433832795028841971693993751058209749;
 
-  cout << f << endl;
-  cout << d << endl;
-  cout << ld << endl;
+  cout << time_on_seconds << endl;
+  cout << balance << endl;
+  cout << pi << endl;
 
   return 0;
 }

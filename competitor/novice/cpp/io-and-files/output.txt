@@ -1,0 +1,3 @@
+The number is 89
+The character is j
+My full name is Amgad Hussein

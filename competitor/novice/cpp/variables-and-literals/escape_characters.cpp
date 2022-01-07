@@ -17,9 +17,12 @@ using namespace std;
  */
 
 int main(int argc, char const *argv[]) {
+  char quote = '\'';
+  cout << quote << endl;
+
   cout << "Electronic" << '\t' << "Clinic" << '\n';
-  cout << "She says " << '\"' << "welcome" << '\"'
-       << '\n';               // insert a new line characters
-  cout << "welcome" << endl;  // insert a new line and flushes the stream
+  cout << "Electronic\tClinic\n";  // insert a new line characters
+  cout << "welcome" << endl;       // insert a new line and flushes the stream
+
   return 0;
 }

@@ -1,6 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#define IOS                         \
+  ios_base::sync_with_stdio(false); \
+  cin.tie(NULL);                    \
+  cout.tie(NULL);
+
+#define FIO                         \
+  freopen("input.txt", "r", stdin); \
+  // freopen("output.txt", "w", stdout);
+
 /* Bitwise Operators
  * In C++, bitwise operators are used to perform operations on individual bits.
  * They can only be used alongside char and int data types.
@@ -15,24 +24,19 @@ using namespace std;
  *  >>      | Binary Shift Right
  */
 
-int main() {
-  int a = 12, b = 25;
+int main(int argc, char const *argv[]) {
+  IOS;
+  FIO;
 
-  printf("a & b = %d\n", (a & b));
-  printf("a | b = %d\n", (a | b));
-  printf("a ^ b = %d\n", (a ^ b));
-  printf("~a = %d\n", ~a);
-  printf("b << 1 = %d\n", (b << 1));
-  printf("a >> 1 = %d\n", (a >> 1));
+  int n, m;
+  scanf("%d %d", &n, &m);
+
+  printf("%d & %d = %d\n", n, m, (n & m));
+  printf("%d | %d = %d\n", n, m, (n | m));
+  printf("%d ^ %d = %d\n", n, m, (n ^ m));
+  printf("~%d = %d\n", n, ~n);
+  printf("%d << 1 = %d\n", m, (m << 1));
+  printf("%d >> 1 = %d\n", n, (n >> 1));
 
   return 0;
 }
-
-/* output:
- *  a & b = 8
- *  a | b = 29
- *  a ^ b = 21
- *  ~a = -13
- *  b << 1 = 50
- *  a >> 1 = 6
- */

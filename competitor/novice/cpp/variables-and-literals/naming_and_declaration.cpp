@@ -11,22 +11,21 @@ using namespace std;
  */
 
 int main(int argc, char const *argv[]) {
-  // random value
-  int n;
+  int n;  // variable declaration with (random value)
   cout << n << endl;
 
   n = 90;
   cout << n << endl;
 
-  // with initialization
-  int m = 0;
+  int m = 0;  // variable initialization
+  int n2 = 3, n3 = 2, n4 = 1;
 
-  // multi initialization: 1
+  // initialize multiple variables: 1
   int i, j, k;
   i = j = k = 0;
   cout << i << j << k << endl;
 
-  // multi initialization: 2
+  // initialize multiple variables: 2
   int q, p, d = p = q = 0;
   cout << q << p << q << endl;
 

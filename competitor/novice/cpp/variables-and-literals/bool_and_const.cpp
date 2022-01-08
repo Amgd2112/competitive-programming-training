@@ -21,5 +21,8 @@ int main(int argc, char const *argv[]) {
   const bool TRUE = true;
   cout << TRUE << endl;
 
+  const double pi = 3.14;  // OK
+  const int val;  // error! cannot modify its value and must be initialized
+
   return 0;
 }

@@ -1,30 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-  const int N = INT_MAX;
-  long long num = 9328798327948628;
-  printf("%lld\n", num);
+#define IOS                         \
+  ios_base::sync_with_stdio(false); \
+  cin.tie(NULL);                    \
+  cout.tie(NULL);
 
-  bool res = num < N;
-  printf("%d\n", res);
+#define FIO                         \
+  freopen("input.txt", "r", stdin); \
+  // freopen("output.txt", "w", stdout);
 
-  printf("long long upper: %lld, lower: %lld\n", LONG_LONG_MAX, LONG_LONG_MIN);
+#define N 100
+#define M 500
 
-  printf("%0.9lf\n", M_PI);     // math -> pi
-  printf("%0.4lf\n", M_SQRT2);  // math -> sqrt(2)
-  printf("%lf\n", M_E);         // math -> e
-  printf("%lf\n", M_LOG10E);    // math -> log10(e)
+int main(int argc, char const *argv[]) {
+  IOS;
+  FIO;
+
+  // Limits
+  printf("Max of int: %d\n", INT_MAX);
+  printf("Min of int: %d\n", INT_MIN);
+  printf("Max of long long: %lld\n", LONG_LONG_MAX);
+
+  // Constants
+  printf("PI: %0.9lf\n", M_PI);
+  printf("sqrt(2): %0.4lf\n", M_SQRT2);
+  printf("e: %lf\n", M_E);
+  printf("log10(e): %lf\n", M_LOG10E);
 
   return 0;
 }
-
-/* output:
- *  9328798327948628
- *  0
- *  long long upper: 9223372036854775807, lower: -9223372036854775808
- *  3.141592654
- *  1.4142
- *  2.718282
- *  0.434294
- */

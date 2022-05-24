@@ -50,23 +50,16 @@ int queens_attack(square qs, vector<square> obstacles, int board_size) {
   int bottom_right = min(bottom, right);
 
   for (square obstacle : obstacles) {
-    if (qs.at_top(obstacle))
-      bottom = min(bottom, qs.chebyshev_distance(obstacle) - 1);
-    if (qs.at_bottom(obstacle))
-      top = min(top, qs.chebyshev_distance(obstacle) - 1);
-    if (qs.at_left(obstacle))
-      right = min(right, qs.chebyshev_distance(obstacle) - 1);
-    if (qs.at_right(obstacle))
-      left = min(left, qs.chebyshev_distance(obstacle) - 1);
+    int dist = qs.chebyshev_distance(obstacle) - 1;
+    if (qs.at_top(obstacle)) bottom = min(bottom, dist);
+    if (qs.at_bottom(obstacle)) top = min(top, dist);
+    if (qs.at_left(obstacle)) right = min(right, dist);
+    if (qs.at_right(obstacle)) left = min(left, dist);
 
-    if (qs.at_top_left(obstacle))
-      bottom_right = min(bottom_right, qs.chebyshev_distance(obstacle) - 1);
-    if (qs.at_bottom_left(obstacle))
-      top_right = min(top_right, qs.chebyshev_distance(obstacle) - 1);
-    if (qs.at_top_right(obstacle))
-      bottom_left = min(bottom_left, qs.chebyshev_distance(obstacle) - 1);
-    if (qs.at_bottom_right(obstacle))
-      top_left = min(top_left, qs.chebyshev_distance(obstacle) - 1);
+    if (qs.at_top_left(obstacle)) bottom_right = min(bottom_right, dist);
+    if (qs.at_bottom_left(obstacle)) top_right = min(top_right, dist);
+    if (qs.at_top_right(obstacle)) bottom_left = min(bottom_left, dist);
+    if (qs.at_bottom_right(obstacle)) top_left = min(top_left, dist);
   }
 
   return top + bottom + right + left + top_left + top_right + bottom_left +

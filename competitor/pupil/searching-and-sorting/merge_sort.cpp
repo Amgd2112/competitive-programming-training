@@ -6,7 +6,9 @@ using namespace std;
   cin.tie(NULL);                    \
   cout.tie(NULL);
 
-#define FIO freopen("input.txt", "r", stdin);
+#define FIO                         \
+  freopen("input.txt", "r", stdin); \
+  // freopen("output.txt", "w", stdout);
 
 void merge(int a[], int const &left, int const &mid, int const &right) {
   int const n = mid - left + 1;
@@ -48,7 +50,7 @@ int main(int argc, char const *argv[]) {
   int a[n];
   for (int &ai : a) scanf("%d", &ai);
 
-  merge_sort(a, 0, n);
+  merge_sort(a, 0, n - 1);
   for (int ai : a) printf("%d ", ai);
 
   return 0;

@@ -20,37 +20,28 @@ typedef struct ListNode {
 
 ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
   int val = 0;
-  ListNode *head = new ListNode(), *tail = head, *current;
+  ListNode *head = new ListNode(), *tail = head, *last;
 
-  while (l1 && l2) {
+  for (; l1 && l2;
+       last = tail, tail = tail->next, l1 = l1->next, l2 = l2->next) {
     val = (l1->val) + (l2->val) + (tail->val);
     tail->val = (val >= 10) ? val - 10 : val;
     tail->next = new ListNode(val >= 10);
-    current = tail;
-    tail = tail->next;
-    l1 = l1->next;
-    l2 = l2->next;
   }
 
-  while (l1) {
+  for (; l1; last = tail, tail = tail->next, l1 = l1->next) {
     val = (l1->val) + (tail->val);
     tail->val = (val >= 10) ? val - 10 : val;
     tail->next = new ListNode(val >= 10);
-    current = tail;
-    tail = tail->next;
-    l1 = l1->next;
   }
 
-  while (l2) {
+  for (; l2; last = tail, tail = tail->next, l2 = l2->next) {
     val = (l2->val) + (tail->val);
     tail->val = (val >= 10) ? val - 10 : val;
     tail->next = new ListNode(val >= 10);
-    current = tail;
-    tail = tail->next;
-    l2 = l2->next;
   }
 
-  if (!(tail->val)) current->next = nullptr;
+  if (!(tail->val)) last->next = nullptr;
   return head;
 }
 
@@ -60,19 +51,17 @@ int main(int argc, char const* argv[]) {
 
   int n, m;
   scanf("%d%d", &n, &m);
-  list_node *l1 = new list_node(), *l2 = new list_node(), *t1 = l1, *t2 = l2;
+  list_node *l1 = new list_node(), *l2 = new list_node();
 
   int val;
-  for (int i = 0; i < n; i++) {
+  for (list_node *t1 = l1, int i = 0; i < n; i++, t1 = t1->next) {
     scanf("%d", &val);
     t1->next = new list_node(val);
-    t1 = t1->next;
   }
 
-  for (int j = 0; j < n; j++) {
+  for (list_node *t2 = l2, int j = 0; j < n; j++, t2 = t2->next) {
     scanf("%d", &val);
     t2->next = new list_node(val);
-    t2 = t2->next;
   }
 
   for (list_node* s = addTwoNumbers(l1->next, l2->next); s; s = s->next) {

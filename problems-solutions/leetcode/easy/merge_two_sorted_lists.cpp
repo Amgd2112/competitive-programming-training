@@ -20,9 +20,8 @@ typedef struct ListNode {
 
 list_node* mergeTwoLists(list_node* list1, list_node* list2) {
   list_node* head = new list_node();
-  list_node* tail = head;
 
-  while (list1 && list2) {
+  for (list_node* tail = head; list1 && list2; tail = tail->next) {
     if (list1->val < list2->val) {
       tail->next = new list_node(list1->val);
       list1 = list1->next;
@@ -30,20 +29,14 @@ list_node* mergeTwoLists(list_node* list1, list_node* list2) {
       tail->next = new list_node(list2->val);
       list2 = list2->next;
     }
-
-    tail = tail->next;
   }
 
-  while (list1) {
+  for (; list1; tail = tail->next, list1 = list1->next) {
     tail->next = new list_node(list1->val);
-    tail = tail->next;
-    list1 = list1->next;
   }
 
-  while (list2) {
+  for (; list2 tail = tail->next, list2 = list2->next) {
     tail->next = new list_node(list2->val);
-    tail = tail->next;
-    list2 = list2->next;
   }
 
   return head->next;
@@ -55,25 +48,21 @@ int main(int argc, char const* argv[]) {
 
   int n, m;
   scanf("%d%d", &n, &m);
-  list_node *l1 = new list_node(), *l2 = new list_node(), *t1 = l1, *t2 = l2;
+  list_node *l1 = new list_node(), *l2 = new list_node();
 
   int val;
-  for (int i = 0; i < n; i++) {
+  for (list_node *t1 = l1, int i = 0; i < n; i++, t1 = t1->next) {
     scanf("%d", &val);
     t1->next = new list_node(val);
-    t1 = t1->next;
   }
 
-  for (int j = 0; j < n; j++) {
+  for (list_node *t2 = l2, int j = 0; j < n; j++, t2 = t2->next) {
     scanf("%d", &val);
     t2->next = new list_node(val);
-    t2 = t2->next;
   }
 
-  list_node* sorted_list = mergeTwoLists(l1->next, l2->next);
-  while (sorted_list) {
-    printf("%d ", sorted_list->val);
-    sorted_list = sorted_list->next;
+  for (list_node* l = mergeTwoLists(l1->next, l2->next); l; l = l->next) {
+    printf("%d ", l->val);
   }
 
   return 0;

@@ -10,25 +10,22 @@ using namespace std;
   freopen("input.txt", "r", stdin); \
   // freopen("output.txt", "w", stdout);
 
-int numIdenticalPairs(vector<int>& nums) {
-  unordered_map<int, int> um;
-  int cnt = 0;
-  for (const int& num : nums) {
-    cnt += um[num];
-    um[num]++;
+int hammingWeight(uint32_t n) {
+  int ones = 0;
+  while (n) {
+    ones += n & 1;
+    n >>= 1;
   }
-  return cnt;
+  return ones;
 }
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
   IOS;
   // FIO;
 
   int n;
   scanf("%d", &n);
-  vector<int> nums(n);
-  for (const int& num : nums) scanf("%d", &num);
-  printf("%d ", numIdenticalPairs(nums));
+  printf("%d\n", hammingWeight(n));
 
   return 0;
 }

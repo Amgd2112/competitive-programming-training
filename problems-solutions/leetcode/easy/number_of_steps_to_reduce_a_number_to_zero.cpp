@@ -10,25 +10,23 @@ using namespace std;
   freopen("input.txt", "r", stdin); \
   // freopen("output.txt", "w", stdout);
 
-int numIdenticalPairs(vector<int>& nums) {
-  unordered_map<int, int> um;
-  int cnt = 0;
-  for (const int& num : nums) {
-    cnt += um[num];
-    um[num]++;
+int numberOfSteps(int num) {
+  if (num <= 1) {
+    return num;
+  } else if (num & 1) {
+    return 2 + numberOfSteps((num - 1) >> 1);
+  } else {
+    return 1 + numberOfSteps(num >> 1);
   }
-  return cnt;
 }
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
   IOS;
   // FIO;
 
   int n;
   scanf("%d", &n);
-  vector<int> nums(n);
-  for (const int& num : nums) scanf("%d", &num);
-  printf("%d ", numIdenticalPairs(nums));
+  printf("%d\n", numberOfSteps(n));
 
   return 0;
 }

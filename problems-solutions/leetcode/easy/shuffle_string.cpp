@@ -10,25 +10,26 @@ using namespace std;
   freopen("input.txt", "r", stdin); \
   // freopen("output.txt", "w", stdout);
 
-int numIdenticalPairs(vector<int>& nums) {
-  unordered_map<int, int> um;
-  int cnt = 0;
-  for (const int& num : nums) {
-    cnt += um[num];
-    um[num]++;
+string restoreString(string s, vector<int>& indices) {
+  string ans(s.size(), ' ');
+  for (int i = 0; i < s.size(); i++) {
+    ans[indices[i]] = s[i];
   }
-  return cnt;
+  return ans;
 }
 
 int main(int argc, char const* argv[]) {
   IOS;
   // FIO;
 
+  string s;
+  getline(cin, s);
+
   int n;
-  scanf("%d", &n);
-  vector<int> nums(n);
-  for (const int& num : nums) scanf("%d", &num);
-  printf("%d ", numIdenticalPairs(nums));
+  cin >> n;
+  vector<int> indices(n);
+  for (int& index : indices) cin >> index;
+  cout << restoreString(s, indices);
 
   return 0;
 }
